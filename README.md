@@ -1,6 +1,6 @@
 # AI-Dev Scaffold
 
-Project scaffold implementing **Itohiro's AI-Driven Development Methodology** for Claude Code.
+Project scaffold implementing the **AI-Driven Development Methodology** for Claude Code.
 
 > Human defines vision & governs quality gates; AI executes the full implementation stack with formal verification at every layer.
 
@@ -112,7 +112,7 @@ Code:         // Implements AUTH-INV-001
 
 ## Origin
 
-Based on [Itohiro's AI-Driven Development methodology](https://zenn.dev/loglass/articles/2790c0ef0e040b) — building production systems where the human writes zero code, focusing entirely on vision, specs, and quality gates.
+The methodology focuses on building production systems where the human defines vision and governs quality gates, while AI executes the full implementation stack.
 
 ## License
 

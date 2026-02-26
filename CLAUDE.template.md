@@ -23,7 +23,7 @@
 
 ## Development Methodology
 
-This project follows the **AI-Driven Development Lifecycle** based on Itohiro's methodology.
+This project follows the **AI-Driven Development Lifecycle**.
 
 All features go through: `/next-phase [spec-name]`
 
