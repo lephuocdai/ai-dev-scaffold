@@ -31,7 +31,15 @@ Extract from issue:
 - Acceptance criteria
 - Labels and assignees
 
-### 3. Implement Solution
+### 3. Determine Approach
+
+Based on issue complexity:
+
+- **Simple fix**: Direct implementation with TDD
+- **Feature work**: Run `/next-phase` with the issue as input
+- **If unclear**: Ask user for guidance
+
+### 4. Implement Solution
 
 Based on issue content:
 
@@ -41,18 +49,18 @@ Based on issue content:
 - Implement solution step by step
 - Test changes locally
 
-### 4. Verify Quality
+### 5. Verify Quality
 
 Before committing, ensure:
 
 - [ ] Code follows project style
 - [ ] Type checking passes
 - [ ] No linting errors
+- [ ] All tests pass (existing and new)
 - [ ] Application runs without errors
 - [ ] Changes match issue requirements
-- [ ] All existing functionality still works
 
-### 5. Create PR
+### 6. Create PR
 
 Use `/pr-create` command to:
 
@@ -64,6 +72,7 @@ Use `/pr-create` command to:
 ## Important Notes
 
 - Always read issue details carefully before implementing
+- For complex issues, use `/next-phase` to follow the full lifecycle
 - Test thoroughly before creating PR
 - Follow conventional commit message format
 - If issue is unclear, ask for clarification before implementing

@@ -21,7 +21,7 @@ The same filename MUST be used across `docs/specs/`, `docs/verification/`, and `
 | Author | {author} |
 | Date | YYYY-MM-DD |
 | Governance | Standard / Security-Critical |
-| PRD | `01_specs/{name}.md` (if applicable) |
+| Plan | `docs/plans/{name}.md` |
 
 ## Overview
 
@@ -79,11 +79,10 @@ Brief description of what this feature does and why it exists.
 1. **No ambiguity**: Use "MUST", "MUST NOT", "SHALL". Never use "should", "might", "usually".
 2. **Testable conditions**: Every requirement must be verifiable by a test.
 3. **Unique invariant IDs**: Use the prefix convention defined in CLAUDE.md.
-4. **Cross-reference**: Link to related specs, PRDs, and ADRs.
+4. **Cross-reference**: Link to related specs, plans, and ADRs with clickable Markdown links.
 
 ## Index
 
 | Spec | Status | Invariants | Date |
 |------|--------|------------|------|
 | (none yet) | | | |
-```

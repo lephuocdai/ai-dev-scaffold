@@ -29,6 +29,28 @@ Test-Driven Development methodology adapted for AI-driven development.
 - **One behavior per test**: Each test verifies one specific behavior.
 - **Fast feedback**: Tests should run fast. Mock external dependencies.
 
+## TDD Techniques
+
+### Assert First
+Write the assertion first, then work backward to setup:
+```
+// Start with: expect(result).toBe(expected)
+// Then add: const result = doSomething(input)
+// Then add: const input = createInput(...)
+```
+
+### Triangulation
+Use multiple examples to drive toward a general solution:
+- First test: simple case with hardcoded result
+- Second test: different input forces actual implementation
+- Third test: edge case refines the solution
+
+### Fake It Till You Make It
+Start with the simplest possible implementation (even hardcoded), then generalize through triangulation.
+
+### One Step Test
+Choose the next test that requires the smallest incremental change to the implementation.
+
 ## TDD with Spec-Driven Development
 
 When using the full `/next-phase` lifecycle:
@@ -55,6 +77,6 @@ TC-AUTH-001 (from test design)
 
 - Writing tests AFTER implementation (test-after is not TDD)
 - Writing too many tests before implementing (write one at a time)
-- Making tests pass by hardcoding return values
+- Making tests pass by hardcoding return values (except as temporary Green step)
 - Testing implementation details instead of behavior
 - Skipping the refactor phase

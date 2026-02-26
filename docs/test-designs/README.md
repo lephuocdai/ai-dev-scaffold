@@ -18,12 +18,6 @@ Same filename as the corresponding spec: `docs/specs/foo.md` -> `docs/test-desig
 | Date | YYYY-MM-DD |
 | Total Cases | {N} (P0: {n}, P1: {n}, P2: {n}) |
 
-## Test Case Naming Convention
-
-```
-TC-{PREFIX}-{NNN}: {Short description}
-```
-
 ## Test Cases
 
 ### TC-{PREFIX}-001: {Description}
@@ -31,8 +25,8 @@ TC-{PREFIX}-{NNN}: {Short description}
 | Field | Value |
 |-------|-------|
 | Priority | P0 / P1 / P2 |
-| Spec Section | `docs/specs/{name}.md#{section}` |
-| Invariant | {PREFIX}-INV-{NNN} |
+| Spec Section | [FR-1](docs/specs/{name}.md#fr-1-requirement-name) |
+| Invariant | [{PREFIX}-INV-001](docs/specs/{name}.md#prefix-inv-001-short-name) |
 | Technique | Equivalence Partitioning / Boundary Value / State Transition / Error Guessing |
 
 **Pre-conditions:**

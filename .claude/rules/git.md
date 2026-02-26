@@ -38,12 +38,16 @@ refactor(services): extract API error handling into utility
 test(auth): add unit tests for login flow
 ```
 
-### AI-Generated Commits
+### Traceability in Commits
 
-For commits made with Claude Code assistance, include:
+For feature commits following the lifecycle, include traceability:
 
 ```
 feat(scope): description
+
+Implements invariants: AUTH-INV-001, AUTH-INV-002
+Spec: docs/specs/{name}.md
+Test Design: docs/test-designs/{name}.md
 
 Co-Authored-By: Claude <noreply@anthropic.com>
 ```

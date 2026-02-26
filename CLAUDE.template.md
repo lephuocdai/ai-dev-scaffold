@@ -12,29 +12,47 @@
 
 {{ARCHITECTURE_OVERVIEW}}
 
+## Tech Stack
+
+{{TECH_STACK}}
+
 ## Common Commands
 
 ```bash
-{{PACKAGE_MANAGER}} test          # Run all tests
-{{PACKAGE_MANAGER}} lint          # Lint all packages
-{{PACKAGE_MANAGER}} typecheck     # Type-check all packages
-{{PACKAGE_MANAGER}} build         # Build all packages
+{{DEV_SERVER_CMD}}        # Start dev server
+{{TEST_CMD}}              # Run all tests
+{{LINT_CMD}}              # Lint all code
+{{TYPECHECK_CMD}}         # Type-check
+{{BUILD_CMD}}             # Build for production
 ```
 
 ## Development Methodology
 
 This project follows the **AI-Driven Development Lifecycle**.
 
-All features go through: `/next-phase [spec-name]`
+All features go through: `/next-phase [spec-name or task description]`
 
-Pipeline: **Spec -> Verify -> Test Design -> TDD -> Review -> Complete**
+```
+Vision -> Research -> Roadmap -> Spec -> Verify -> Test Design -> TDD -> Review -> Complete
+```
+
+### 6-Step Development Lifecycle (mandatory, no step skipping)
+
+| Step | Name | Description |
+|------|------|-------------|
+| 1 | Planning | Roadmap check + Plan Mode design + user approval |
+| 2 | Implementation | 4-stage pipeline: Spec -> Verify (iterate) -> Test Design -> TDD |
+| 3 | Build & Verify | Build + all tests + lint + type-check + security audit |
+| 4 | Commit & Review | Implementation commit + independent review team |
+| 5 | Review Fix | Address all findings + re-test + commit |
+| 6 | Complete | Roadmap update + commit |
 
 ### Governance Levels
 
 | Level | When | Extra Steps |
 |-------|------|-------------|
 | **Standard** | Normal features, bug fixes, refactoring | TDD + test design |
-| **Security-Critical** | Auth, PII, payments, infra, DB schema | + Spec verification + threat analysis + security reviewer |
+| **Security-Critical** | Auth, PII, payments, infra, DB schema | + Spec verification + STRIDE threat analysis + security reviewer |
 
 ### Invariant ID Prefixes
 
@@ -48,23 +66,63 @@ Define prefixes relevant to your domain:
 
 ### Documentation Structure
 
+All documents for the same feature share the **same filename** across directories.
+
 | Document | Location | Template |
 |----------|----------|----------|
-| PRD / Feature Spec | `01_specs/` | Free-form |
+| Implementation Plan | `docs/plans/` | `docs/plans/README.md` |
 | Detailed Spec | `docs/specs/` | `docs/specs/README.md` |
-| Verification | `docs/verification/` | `docs/verification/README.md` |
+| Verification Report | `docs/verification/` | `docs/verification/README.md` |
 | Test Design | `docs/test-designs/` | `docs/test-designs/README.md` |
 | ADR | `docs/decisions/` | `docs/decisions/README.md` |
+| Deep Research | `docs/research/` | `docs/research/README.md` |
+
+### Traceability Chain
+
+```
+Code line
+  -> Test case ID (TC-PREFIX-NNN) in code comment
+Test Design (docs/test-designs/)
+  -> References spec section + invariant ID
+Spec (docs/specs/)
+  -> Invariant IDs defined here, threat model links
+Verification Report (docs/verification/)
+  -> Consistency proof against all existing specs
+Plan (docs/plans/)
+  -> Roadmap item reference, acceptance criteria
+Roadmap (roadmap.md)
+  -> Strategic vision decisions
+```
+
+All document cross-references MUST be clickable Markdown links, not backtick-only references.
 
 ### Current Phase
 
-- Phase 1: [description] -- Status: Not Started
+- Phase {{N}}: {{DESCRIPTION}} -- Status: Not Started
 
-## GitHub Identity
+## Roadmap
+
+See [roadmap.md](./roadmap.md) for the full development roadmap.
+
+## Project-Specific Rules
+
+### Language
+
+- Code, variables, comments: English
+- Documents, commit messages: {{LANGUAGE}}
+
+### Package Manager
+
+This project uses **{{PACKAGE_MANAGER}}**. Do not use other package managers.
+
+### GitHub Identity
 
 Use `{{GITHUB_USERNAME}}` identity for all GitHub operations.
 Repository: `{{GITHUB_REPO}}`
 
-## Package Manager
+### Safety Rules
 
-This project uses **{{PACKAGE_MANAGER}}**. Do not use other package managers.
+- Never force push to main/master
+- Never commit secrets or credentials
+- Never skip pre-commit hooks
+- Never proceed to test design with a failing spec verification

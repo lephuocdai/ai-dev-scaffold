@@ -9,7 +9,7 @@ The human defines WHAT must be true (spec with invariants). AI implements HOW.
 ```
 Human writes vision/PRD
   -> AI writes detailed spec with invariants
-  -> AI verifies spec for consistency
+  -> AI verifies spec for consistency (iterates until zero ambiguity)
   -> AI derives test cases from spec
   -> AI implements via TDD from test cases
   -> AI reviews implementation
@@ -98,3 +98,21 @@ PRD item "Implement user login"
 | "a few" | Exact number |
 | "quickly" | Specific time bound (e.g., "within 200ms") |
 | "secure" | Specific security measure (e.g., "encrypted with AES-256-GCM") |
+
+## The 2a-2b Iteration Loop
+
+Specs are NOT one-shot. The critical innovation from Itohiro's methodology:
+
+```
+Stage 2a: Write spec (spec-writer agent)
+    |
+    v
+Stage 2b: Verify spec (formal-verifier agent)
+    |
+    ├── PASS -> Proceed to test design
+    |
+    └── FAIL -> Return to 2a with specific issues
+         (iterate until zero ambiguity)
+```
+
+This loop catches contradictions, ambiguities, and gaps BEFORE any code is written.

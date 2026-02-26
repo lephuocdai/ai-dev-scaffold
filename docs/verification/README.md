@@ -17,6 +17,7 @@ Same filename as the corresponding spec: `docs/specs/foo.md` -> `docs/verificati
 | Date | YYYY-MM-DD |
 | Governance | Standard / Security-Critical |
 | Result | PASS / FAIL |
+| Iteration | {N} (number of 2a-2b cycles) |
 
 ## Checks
 
@@ -33,7 +34,7 @@ Same filename as the corresponding spec: `docs/specs/foo.md` -> `docs/verificati
 - Notes: {details}
 
 ### 3. Completeness Check
-- [ ] All PRD items covered by at least one invariant
+- [ ] All plan items covered by at least one invariant
 - [ ] All error cases enumerated
 - [ ] All boundary conditions specified
 - Result: PASS / FAIL
@@ -84,6 +85,12 @@ Same filename as the corresponding spec: `docs/specs/foo.md` -> `docs/verificati
 | Life to Date | PASS/FAIL |
 
 **Overall**: PASS / FAIL
+
+## Iteration History
+
+| Iteration | Date | Issues Found | Issues Fixed |
+|-----------|------|-------------|-------------|
+| 1 | | | |
 
 ## Action Items (if FAIL)
 

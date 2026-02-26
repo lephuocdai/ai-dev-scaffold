@@ -39,7 +39,7 @@ For each requirement and invariant, apply:
 For each test case, define:
 - **ID**: `TC-{PREFIX}-{NNN}`
 - **Priority**: P0 (must) / P1 (should) / P2 (nice-to-have)
-- **Spec traceability**: Link to spec section + invariant ID
+- **Spec traceability**: Clickable link to spec section + invariant ID
 - **Technique**: Which test technique generated this case
 - **Pre-conditions, Steps, Expected Result**
 

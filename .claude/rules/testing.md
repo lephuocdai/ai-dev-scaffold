@@ -95,3 +95,9 @@ Use factory functions for test data rather than excessive mock return values.
 - Use `describe` blocks to group related tests
 - Keep individual test methods under 20 lines
 - Extract common setup to `beforeEach` or helper functions
+
+## TDD-Specific Rules
+
+- Reference test case ID from test design: `// TC-{PREFIX}-{NNN}: {description}`
+- All P0 test cases from test design MUST be implemented
+- If a test needs to change, that signals a spec change -- go back to spec

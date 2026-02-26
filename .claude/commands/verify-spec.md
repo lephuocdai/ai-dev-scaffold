@@ -19,7 +19,7 @@ If file not found, search `docs/specs/` for matching filenames.
 
 ### 2. Run Verification Checks
 
-Perform ALL checks from the verification template (`docs/verification/README.md`):
+Perform ALL checks from the verification rules (`.claude/rules/spec-verification.md`):
 
 #### Standard Checks (always)
 1. **Unique Invariant IDs** -- No duplicates within spec or across all `docs/specs/*.md`
@@ -35,7 +35,7 @@ Perform ALL checks from the verification template (`docs/verification/README.md`
 
 ### 3. Generate Report
 
-Create `docs/verification/{same-filename}.md` using the template.
+Create `docs/verification/{same-filename}.md` using the template from `docs/verification/README.md`.
 
 ### 4. Report Results
 

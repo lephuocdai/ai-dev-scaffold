@@ -69,31 +69,14 @@
 - [ ] No injection vulnerabilities (SQL, XSS, command)
 - [ ] Authentication/authorization properly enforced
 
-## 9. Positive Feedback (Required)
+## 9. Traceability (Medium)
+
+- [ ] Implementation references invariant IDs in comments
+- [ ] Test cases reference test design IDs
+- [ ] Changes align with the spec
+
+## 10. Positive Feedback (Required)
 
 Every review MUST include positive observations:
 - [ ] Identify at least one good pattern or smart decision
 - [ ] Be specific about what makes it good
-
-## Review Output Format
-
-```markdown
-## Code Review: [Title]
-
-### Critical Issues
-- [Issue with file:line reference]
-
-### High Priority
-- [Issue with suggestion]
-
-### Medium Priority
-- [Improvement suggestion]
-
-### Positives
-- [Good patterns to highlight]
-
-### Summary
-- Total issues: X critical, Y high, Z medium
-- Ready to merge: Yes / No
-- Recommendation: Approve / Request Changes
-```

@@ -13,8 +13,16 @@ node_modules/
 __pycache__/
 .venv/
 target/
+vendor/
+Pods/
 
 # Environment
 .env
 .env.local
 .env.*.local
+
+# Build outputs (added by user's project)
+dist/
+build/
+out/
+.next/

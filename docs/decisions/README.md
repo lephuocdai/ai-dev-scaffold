@@ -70,8 +70,8 @@ Be specific about the approach chosen.
 
 ## Related
 
-- Spec: `docs/specs/{name}.md` (if applicable)
-- PRD: `01_specs/{name}.md` (if applicable)
+- Spec: [docs/specs/{name}.md](../specs/{name}.md) (if applicable)
+- Plan: [docs/plans/{name}.md](../plans/{name}.md) (if applicable)
 - Previous ADR: ADR-{NNN} (if superseding)
 ```
 
