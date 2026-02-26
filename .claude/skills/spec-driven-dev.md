@@ -101,7 +101,7 @@ PRD item "Implement user login"
 
 ## The 2a-2b Iteration Loop
 
-Specs are NOT one-shot. The critical innovation from Itohiro's methodology:
+Specs are NOT one-shot. The critical innovation from this methodology:
 
 ```
 Stage 2a: Write spec (spec-writer agent)

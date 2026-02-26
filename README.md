@@ -6,14 +6,11 @@ Project scaffold implementing the **AI-Driven Development Methodology** for Clau
 
 ## Origin & Methodology
 
-This scaffold distills the development methodology from two reference projects:
-
-1. **LoglassCube** (Rust OLAP engine) - AI-agent teams with progressive governance, formal verification, benchmark-driven development
-2. **Loglass Claw** (Tauri desktop app) - 7-layer quality gates, complete traceability with invariant IDs, STRIDE threat modeling
+This scaffold distills the AI-driven development methodology from real-world projects that built production systems (OLAP engines, security-critical desktop apps) entirely through AI-agent teams with spec verification at every layer.
 
 Combined with Anthropic's research on [effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents): session management, progress tracking, single-feature focus.
 
-The core flow (from Itohiro's talk):
+The core flow:
 
 ```
 Vision -> Deep Research -> Roadmap -> Unambiguous Specs -> Test Design -> TDD Implementation -> Verified & Documented
