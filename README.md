@@ -119,6 +119,69 @@ Stage 2b: Verify spec (formal-verifier)
 
 This copies all methodology files without overwriting existing files.
 
+## When to Use What
+
+### Commands (you invoke these)
+
+| Scenario | Command | What it does |
+|----------|---------|--------------|
+| **Building a new feature** | `/next-phase auth-login` | Runs the full 6-step lifecycle: plan -> spec -> verify -> test design -> TDD -> review |
+| **Need to research before building** | `/research vector-databases` | Structured investigation with prompt/result pairs saved to `docs/research/` |
+| **Spec already written, need to check it** | `/verify-spec auth-login` | Runs 8 consistency checks, creates verification report |
+| **Spec verified, need test cases** | `/test-design auth-login` | Derives test cases from spec with traceability and coverage matrix |
+| **About to commit code** | `/code-review` | Reviews staged changes against review criteria |
+| **Ready to open a PR** | `/pr-create` | Commits, pushes, creates PR with traceability template |
+| **Assigned a GitHub issue** | `/solve-issue 42` | End-to-end: branch -> implement -> test -> PR |
+| **Prompt is vague, need clarity** | `/prompt add tests for the filter` | Improves your prompt via context-engineer agent |
+
+### Agents (called automatically by commands)
+
+You don't call agents directly -- `/next-phase` orchestrates them. But you can reference them if running stages manually:
+
+| Agent | When it's called | What it produces |
+|-------|-----------------|-----------------|
+| spec-writer | Stage 2a of `/next-phase` | `docs/specs/{name}.md` |
+| formal-verifier | Stage 2b of `/next-phase` | `docs/verification/{name}.md` |
+| test-architect | Stage 2c of `/next-phase` | `docs/test-designs/{name}.md` |
+| tdd-practitioner | Stage 2d of `/next-phase` | Implementation code + tests |
+| review-lead | Step 4 of `/next-phase` | Code review findings |
+| security-reviewer | Step 4 (Security-Critical only) | Security review findings |
+| context-engineer | Called by `/prompt` | Improved prompt |
+
+### Skills (background knowledge, always available)
+
+Skills are NOT commands. They are reference documents that Claude reads when relevant:
+
+| Skill | When Claude uses it |
+|-------|-------------------|
+| tdd-workflow | During any TDD implementation -- provides Red/Green/Refactor patterns |
+| spec-driven-dev | During spec writing -- provides invariant conventions, language rules, 2a-2b loop |
+| session-management | At session start -- provides startup protocol, progress tracking patterns |
+| domain-knowledge | During any task -- provides your project's business terms and rules |
+
+### Decision Flowchart
+
+```
+Starting a new session?
+  -> Read CLAUDE.md, roadmap.md, git log (session-management skill)
+
+Have a vague idea?
+  -> /research [topic]          -- if you need to investigate options first
+  -> /prompt [rough idea]       -- if you need to clarify your own prompt
+
+Ready to build a feature?
+  -> /next-phase [feature]      -- runs the full lifecycle
+
+Just fixing a GitHub issue?
+  -> /solve-issue [number]      -- lighter workflow, skips heavy spec process
+
+Want to verify work before committing?
+  -> /code-review               -- check against review criteria
+
+Ready to ship?
+  -> /pr-create                 -- commit + push + PR with traceability
+```
+
 ## Key Concepts
 
 ### Invariant ID System
