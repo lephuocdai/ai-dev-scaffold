@@ -30,6 +30,10 @@ FILES=(
   "docs/decisions/README.md"
   "docs/plans/README.md"
   "docs/research/README.md"
+  "docs/acceptance-criteria/TEMPLATE.md"
+  "docs/bugs/TEMPLATE.md"
+  "docs/benchmarks/TEMPLATE.md"
+  "docs/phase-reviews/.gitkeep"
   # Commands
   ".claude/commands/next-phase.md"
   ".claude/commands/verify-spec.md"
@@ -55,6 +59,10 @@ FILES=(
   ".claude/rules/spec-verification.md"
   ".claude/rules/testing.md"
   ".claude/rules/git.md"
+  ".claude/rules/bug-tracking.md"
+  ".claude/rules/acceptance-criteria.md"
+  ".claude/rules/pipeline-guard.md"
+  ".claude/rules/phase-review.md"
   # Skills
   ".claude/skills/tdd-workflow.md"
   ".claude/skills/spec-driven-dev.md"

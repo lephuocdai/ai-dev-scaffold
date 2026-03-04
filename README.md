@@ -30,9 +30,13 @@ Vision -> Deep Research -> Roadmap -> Unambiguous Specs -> Test Design -> TDD Im
 │   └── pull_request_template.md          # PR template with traceability
 ├── docs/
 │   ├── plans/README.md                   # Implementation plan template
+│   ├── acceptance-criteria/TEMPLATE.md   # Acceptance criteria template
 │   ├── specs/README.md                   # Spec template with invariant IDs
 │   ├── verification/README.md            # Verification report template
 │   ├── test-designs/README.md            # Test design template with traceability
+│   ├── bugs/TEMPLATE.md                  # Bug-as-process-gap report template
+│   ├── benchmarks/TEMPLATE.md            # Performance benchmark template
+│   ├── phase-reviews/                    # Phase completion review reports
 │   ├── decisions/README.md               # Architecture Decision Record template
 │   └── research/README.md               # Deep research template (prompt/result pairs)
 ├── .claude/
@@ -60,8 +64,12 @@ Vision -> Deep Research -> Roadmap -> Unambiguous Specs -> Test Design -> TDD Im
 │   ├── rules/
 │   │   ├── review-criteria.md         # Code review checklist
 │   │   ├── spec-verification.md       # Spec verification checklist
-│   │   ├── testing.md                 # Test naming & structure conventions
-│   │   └── git.md                     # Commit & branch conventions
+│   │   ├── testing.md                 # Test naming, technique selection & benchmarking
+│   │   ├── git.md                     # Commit & branch conventions
+│   │   ├── bug-tracking.md           # 10-step bug handling lifecycle
+│   │   ├── acceptance-criteria.md    # Acceptance criteria workflow
+│   │   ├── pipeline-guard.md         # Spec-before-code enforcement
+│   │   └── phase-review.md           # Phase review verification enforcement
 │   └── skills/
 │       ├── tdd-workflow.md            # TDD methodology (Red/Green/Refactor)
 │       ├── spec-driven-dev.md         # Spec-driven development with invariants
@@ -77,7 +85,7 @@ Every feature goes through 6 steps via `/next-phase`:
 ```
 Step 1: Plan          -> Roadmap check + design + user approval
 Step 2: Implement     -> 4-stage pipeline (Spec -> Verify -> Test Design -> TDD)
-Step 3: Build/Verify  -> Full build + tests + security audit
+Step 3: Build/Verify  -> Full build + tests + active quality gates + security audit
 Step 4: Commit/Review -> Commit + independent review team
 Step 5: Review Fix    -> Address findings + re-test
 Step 6: Complete      -> Roadmap update + docs
@@ -215,6 +223,22 @@ The `/next-phase` command orchestrates specialized agents:
 | tdd-practitioner | Red-Green-Refactor implementation | 2d |
 | review-lead | Code quality review | 4 |
 | security-reviewer | Security review (Security-Critical) | 4 |
+
+### Quality Gates
+
+Quality gates activate progressively as the system gains infrastructure. Each gate has an activation point in the roadmap -- once activated, it applies to ALL subsequent items and is enforced by `/next-phase` Step 3 and phase reviews.
+
+### Pipeline Guard
+
+The pipeline guard rule (`pipeline-guard.md`) enforces spec-before-code: plan, acceptance criteria, spec, and test design documents MUST exist before any code is written for a roadmap item. This prevents the common failure mode of code-first-docs-later.
+
+### Bug-as-Process-Gap
+
+Every bug is treated as a process gap, not just a code defect. The 10-step lifecycle (`bug-tracking.md`) requires documenting WHY existing process (specs, test designs, verification) didn't catch the bug, and proposes prevention measures. This creates a feedback loop that strengthens the methodology over time.
+
+### Phase Reviews
+
+Phase reviews (`phase-review.md`) prevent declaring a phase complete without actually running verification. All active quality gates MUST be executed -- "deferred" or "to be documented separately" is not acceptable.
 
 ### Session Management
 

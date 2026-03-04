@@ -27,7 +27,8 @@ Same filename as the corresponding spec: `docs/specs/foo.md` -> `docs/test-desig
 | Priority | P0 / P1 / P2 |
 | Spec Section | [FR-1](docs/specs/{name}.md#fr-1-requirement-name) |
 | Invariant | [{PREFIX}-INV-001](docs/specs/{name}.md#prefix-inv-001-short-name) |
-| Technique | Equivalence Partitioning / Boundary Value / State Transition / Error Guessing |
+| Technique | Equivalence Partitioning / Boundary Value / State Transition / Decision Table / Error Guessing |
+| Rationale | {Why this technique: e.g., "radius is a continuous threshold — BVA tests the exact boundary"} |
 
 **Pre-conditions:**
 - {Setup required}

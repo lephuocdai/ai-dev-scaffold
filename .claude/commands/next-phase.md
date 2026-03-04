@@ -36,6 +36,7 @@ Enter Plan Mode and draft an implementation plan:
    - Governance level justification
    - Acceptance criteria (clear, testable)
 4. Save plan to `docs/plans/{name}.md`
+5. Create acceptance criteria document at `docs/acceptance-criteria/{name}.md` using the template. Define verification timing and method.
 
 **Human gate**: User MUST approve plan before proceeding.
 
@@ -119,6 +120,8 @@ Run full build and verification:
 # (Refer to CLAUDE.md "Common Commands" section)
 ```
 
+**Active Quality Gates**: Check `roadmap.md` Quality Gates section. Run ALL gates that have been activated based on the current roadmap item number. For example, if performance benchmarks activate at item 1.8 and you are implementing item 2.3, performance benchmarks MUST be run. Gate failures block completion.
+
 For Security-Critical: also run security audit (dependency scanning, secret detection, dangerous pattern scanning).
 
 ### Step 4: Commit & Review
@@ -155,12 +158,25 @@ Address all Critical and High findings:
 
 ### Step 6: Completion
 
-1. **Create ADR** if architectural decisions were made:
+1. **Validate all required documents exist** (per `pipeline-guard.md` rule):
+   - Plan: `docs/plans/{name}.md`
+   - Acceptance Criteria: `docs/acceptance-criteria/{name}.md`
+   - Spec: `docs/specs/{name}.md` (code items)
+   - Test Design: `docs/test-designs/{name}.md` (code items)
+   - Verification: `docs/verification/{name}.md`
+2. **Create ADR** if architectural decisions were made:
    - `docs/decisions/{NNN}-{topic}.md` using template
-2. **Update spec status** to "Implemented"
-3. **Update roadmap.md** -- mark item complete, add notes
-4. **Commit**: `docs(scope): complete {name} - update roadmap and specs`
-5. **Update CLAUDE.md** if development rules or phase changed
+3. **Update spec status** to "Implemented"
+4. **Update roadmap.md** -- mark item `[x]`, append artifact links:
+   ```markdown
+   - [x] N.M: Item title — Description
+     - Done: Verifiable acceptance criteria
+     - [Plan](docs/plans/{name}.md) | [Acceptance Criteria](docs/acceptance-criteria/{name}.md)
+     - [Spec](docs/specs/{name}.md) | [Test Design](docs/test-designs/{name}.md) | [Verification](docs/verification/{name}.md)
+   ```
+5. **Commit**: `docs(scope): complete {name} - update roadmap and specs`
+6. **Update CLAUDE.md** if development rules or phase changed
+7. **Check if phase is complete** -- if all items in the current phase are `[x]`, trigger a phase review (see `phase-review.md` rule)
 
 ## Important Rules
 

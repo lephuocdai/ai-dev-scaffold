@@ -42,7 +42,7 @@ Vision -> Research -> Roadmap -> Spec -> Verify -> Test Design -> TDD -> Review 
 |------|------|-------------|
 | 1 | Planning | Roadmap check + Plan Mode design + user approval |
 | 2 | Implementation | 4-stage pipeline: Spec -> Verify (iterate) -> Test Design -> TDD |
-| 3 | Build & Verify | Build + all tests + lint + type-check + security audit |
+| 3 | Build & Verify | Build + all tests + lint + type-check + active quality gates + security audit |
 | 4 | Commit & Review | Implementation commit + independent review team |
 | 5 | Review Fix | Address all findings + re-test + commit |
 | 6 | Complete | Roadmap update + commit |
@@ -64,6 +64,10 @@ Define prefixes relevant to your domain:
 | {{PREFIX_2}}-INV-NNN | {{DOMAIN_2}} |
 | {{PREFIX_3}}-INV-NNN | {{DOMAIN_3}} |
 
+### Quality Gates
+
+Quality gates activate progressively as the system matures. See [roadmap.md](./roadmap.md) Quality Gates section for activation points. Once a gate activates, Step 3 (Build & Verify) automatically includes it. Phase reviews assess ALL active gates.
+
 ### Documentation Structure
 
 All documents for the same feature share the **same filename** across directories.
@@ -71,9 +75,13 @@ All documents for the same feature share the **same filename** across directorie
 | Document | Location | Template |
 |----------|----------|----------|
 | Implementation Plan | `docs/plans/` | `docs/plans/README.md` |
+| Acceptance Criteria | `docs/acceptance-criteria/` | `docs/acceptance-criteria/TEMPLATE.md` |
 | Detailed Spec | `docs/specs/` | `docs/specs/README.md` |
 | Verification Report | `docs/verification/` | `docs/verification/README.md` |
 | Test Design | `docs/test-designs/` | `docs/test-designs/README.md` |
+| Bug Report | `docs/bugs/` | `docs/bugs/TEMPLATE.md` |
+| Performance Benchmark | `docs/benchmarks/` | `docs/benchmarks/TEMPLATE.md` |
+| Phase Review | `docs/phase-reviews/` | (free-form, see `phase-review.md` rule) |
 | ADR | `docs/decisions/` | `docs/decisions/README.md` |
 | Deep Research | `docs/research/` | `docs/research/README.md` |
 
